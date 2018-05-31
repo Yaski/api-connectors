@@ -67,6 +67,14 @@ function BitMEXClient(options) {
 }
 util.inherits(BitMEXClient, EventEmitter);
 
+BitMEXClient.prototype.isPaused = function() {
+  return this.socket.isPaused();
+};
+
+BitMEXClient.prototype.resume = function() {
+  this.socket.resume();
+};
+
 BitMEXClient.prototype.pause = function() {
    this.socket.pause();
 };
