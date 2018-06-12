@@ -147,7 +147,7 @@ BitMEXClient.prototype.addStream = function(symbol, tableName, callback) {
   }
   if (!this.socket.opened) {
     // Not open yet. Call this when open
-    return this.socket.once('open', () => client.addStream(symbol, tableName, callback))
+    return this.socket.instance.once('open', () => client.addStream(symbol, tableName, callback))
   }
 
   // Massage arguments.
